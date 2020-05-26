@@ -1,0 +1,28 @@
+{
+  "name": "simple-rest",
+  "version": "1.0.0",
+  "description": "Simple REST service based on Koa with Swagger documentation and Joi validation",
+  "main": "bin/index.js",
+  "scripts": {
+    "prestart": "npm run build",
+    "start": "npm run serve",
+    "start:watch": "tsc-watch --onSuccess 'npm run serve'",
+    "serve": "node bin/index",
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "joi": "^13.4.0",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-joi-swagger-ts": "^1.0.18",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "@types/koa-bodyparser": "^4.3.0",
+    "tsc-watch": "^4.2.8",
+    "typescript": "^3.4.5"
+  }
+}
