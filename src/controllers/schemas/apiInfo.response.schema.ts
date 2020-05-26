@@ -1,22 +1,23 @@
-import * as Joi from "joi";
-import { definition } from "koa-joi-swagger-ts";
+import * as Joi from 'joi';
+import { definition } from 'koa-joi-swagger-ts';
 
-import { BaseAPIResponseSchema } from "./baseAPI.response.schema";
+import { BaseAPIResponseSchema } from './baseAPI.response.schema';
 
-@definition("Api Info", "Information data about current application and API version")
+@definition('Api Info', 'Information data about current application and API version')
 export class ApiInfoResponseSchema extends BaseAPIResponseSchema {
   public data = Joi.object({
     appVersion: Joi.string()
-      .description("Current version of application")
+      .description('Current version of application')
       .required(),
-    build: Joi.string().description("Current build version of application"),
+    build: Joi.string().description('Current build version of application'),
     apiVersion: Joi.number()
       .positive()
-      .description("Version of current REST api")
+      .description('Version of current REST api')
       .required(),
-    reqHeaders: Joi.object().description("Request headers"),
+    reqHeaders: Joi.object().description('Request headers'),
     apiDoc: Joi.string()
-      .description("URL path to swagger document")
-      .required()
+      .description('URL path to swagger document')
+      .required(),
   }).required();
 }
+export default {};

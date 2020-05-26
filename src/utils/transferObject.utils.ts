@@ -20,9 +20,13 @@ export class TransferObjectUtils {
    *
    * @return ready object for REST response
    */
-  public static createResponseObject<T = object>(responseCode: number, message: string, data: T): IResponseData<T> {
+  public static createResponseObject<T = object>(
+    responseCode: number,
+    message: string,
+    data: T,
+  ): IResponseData<T> {
     const result: IResponseData<T> = {
-      code: responseCode || 200
+      code: responseCode || 200,
     };
 
     if (message) {

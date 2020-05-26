@@ -1,4 +1,4 @@
-import {IUser} from './user.service.types';
+import { IUser } from './user.service.types';
 
 const allUsers: IUser[] = [
   {
@@ -26,28 +26,22 @@ const allUsers: IUser[] = [
     email: 'user4@mail.com',
   },
 ];
-export const getAllUsers = async (): Promise<IUser[]> => {
-  return allUsers;
-};
-
+export const getAllUsers = async (): Promise<IUser[]> => allUsers;
+export const getUserById = async (userId: number): Promise<IUser> | undefined => allUsers.find(
+  ({ id }) => String(id) === String(userId),
+);
 export const updateUser = async (payload: IUser): Promise<boolean> => {
-  const {id} = payload;
+  const { id } = payload;
   const user = await getUserById(id);
   if (user) {
     Object.entries(payload).forEach(
-        ([key, value]) => user[key] = value,
+      ([key, value]) => {
+        user[key] = value;
+      },
     );
     return true;
   }
   return false;
 };
 
-export const insertUser = async (payload: IUser): Promise<boolean> => {
-  return !!payload;
-};
-
-export const getUserById = async (userId: number): Promise<IUser> | undefined => {
-  return allUsers.find(
-      ({id}) => String(id) === String(userId),
-  );
-};
+export const insertUser = async (payload: IUser): Promise<boolean> => !!payload;

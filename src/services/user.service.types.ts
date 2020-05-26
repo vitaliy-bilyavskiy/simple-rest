@@ -3,5 +3,5 @@ export interface IUser {
   login: string;
   email: string;
   birthYear?: number;
-  gender?: "male" | "female";
+  gender?: 'male' | 'female';
 }
